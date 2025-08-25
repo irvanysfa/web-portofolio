@@ -5,7 +5,14 @@ body {
 }
 
 .navbar {
-  background: transparent;
+  position: fixed;       /* menempel di atas, tidak ikut scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* transparan dengan sedikit background */
+  z-index: 1000;         /* supaya tidak ketiban konten lain */
+  padding: 15px 30px;    /* biar agak lebar ke bawah */
+  backdrop-filter: blur(6px); /* efek blur modern */
 }
 
 .navbar-nav .nav-link {
@@ -36,6 +43,12 @@ body {
 .navbar-nav .nav-link:hover::after {
   width: 100%;
 }
+
+/* supaya konten tidak ketutup navbar */
+body {
+  padding-top: 80px; /* sesuaikan dengan tinggi navbar */
+}
+
 
 .navbar-toggler {
   border: none !important;
@@ -80,17 +93,20 @@ body {
 .hero h1 {
   font-size: 3rem;
   font-weight: bold;
+  opacity: 0;                                /* awalnya tidak terlihat */
+  animation: fadeSlideLeft 1s ease forwards; /* forwards = tahan kondisi akhir */
 }
 
-.hero h1 span {
-  color: #ff9900;
+.hero h6 {
+  opacity: 0;
+  animation: fadeSlideLeft 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
 .hero p {
-  max-width: 500px;
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #dcdcdc;
+  opacity: 0;
+  animation: fadeSlideLeft 1s ease forwards;
+  animation-delay: 0.8s;
 }
 
 .btn-custom {
@@ -102,6 +118,7 @@ body {
   margin-right: 10px;
   border-radius: 5px;
   transition: 0.3s;
+  opacity: 0;
 }
 
 .btn-custom:hover {
@@ -116,6 +133,7 @@ body {
   border-radius: 5px;
   background: transparent;
   transition: 0.3s;
+  opacity: 0;
 }
 
 .btn-outline:hover {
