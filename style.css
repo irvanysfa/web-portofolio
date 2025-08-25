@@ -1,0 +1,249 @@
+body {
+  background-color: #0d1b2a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background: transparent;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 700;
+  margin-left: 20px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Warna berubah saat hover */
+.navbar-nav .nav-link:hover {
+  color: #ff9900 !important;
+}
+
+/* Garis bawah animasi */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #ff9900;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 5px 8px;
+  border-radius: 6px; 
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ff9900' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+.hero {
+  background: linear-gradient(rgba(13,27,42,0.9), rgba(13,27,42,0.9)),
+              url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1500&q=80') 
+              no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 50px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero h1 span {
+  color: #ff9900;
+}
+
+.hero p {
+  max-width: 500px;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #dcdcdc;
+}
+
+.btn-custom {
+  background-color: #ff9900;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #cc7a00;
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: #0d1b2a;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Animasi masuk dari kiri */
+@keyframes fadeSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animasi masuk dari bawah */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Terapkan ke teks (muncul dari kiri) */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  animation: fadeSlideLeft 1s ease forwards;
+}
+
+.hero h6 {
+  animation: fadeSlideLeft 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.hero p {
+  animation: fadeSlideLeft 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* Terapkan ke tombol (muncul dari bawah) */
+.hero .btn-custom {
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 1.1s;
+}
+
+.hero .btn-outline {
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+/* Responsive untuk Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  .btn-custom, .btn-outline {
+    width: 150px;
+    margin: 10px 5px;
+  }
+
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+/* Responsive untuk Mobile Android (≤ 576px) */
+@media (max-width: 576px) {
+  .hero {
+    text-align: center;
+    padding: 40px 15px;
+    min-height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h6 {
+    font-size: 0.9rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .btn-custom, .btn-outline {
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .navbar-collapse {
+    margin-top: 15px; 
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 15px;
+  }
+}
